@@ -12,16 +12,16 @@ import pandas as pd
     
 #     return new_df
 
-class Clean():
+class Cleaner():
     
-    def __init__(self,name):
-        self.name=name
+    def __init__(self,dataframe):
+        self.dataframe=dataframe
     
     
     def rename_columns(self,columns,new_names):
         for column,name in list(zip(columns,new_names)):
-            dataframe.rename(columns={column:name},inplace=True)
-        return dataframe
+            self.dataframe.rename(columns={column:name},inplace=True)
+        return self.dataframe
     
 # def drop_nulls(dataframe,column_to_search):
 #     # The null values in our dataframe are listed as "\N"
