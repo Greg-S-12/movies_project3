@@ -5,6 +5,8 @@ This repo contains:
 * Three python starter files
 * Three test files
 * A starter jupyter notebook
+* Our csv data combined with API and scaped data as OMDB.csv
+* The notebooks to be evaluated are "Greg_notebook_essential" and "Grace_notebook". These will be updated into one for Friday.
 
 We are using OMDB (API) & IMDB (csv) to compare information on movies & TV shows based on their rankings.
 These are our hypotheses:
