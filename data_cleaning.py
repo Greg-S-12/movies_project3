@@ -11,14 +11,27 @@ Each support function should have an informative name and return the partially c
 """
 import pandas as pd
 
-def support_function_one(example):
-    pass
 
-def support_function_two(example):
-    pass
+def rename_columns(current_columns, new_columns, dataframe):
+    
+    df=dataframe
+    
+    for column, name in list(zip(current_columns,new_columns)):
+        df.rename(columns={column:name},inplace=True)
+    return df
+
+def drop_columns(dataframe,columns_to_drop):
+    df=dataframe
+    return df.drop(columns=columns_to_drop, inplace=True)
+
 
 def support_function_three(example):
     pass
+
+
+
+
+
 
 def full_clean():
     """

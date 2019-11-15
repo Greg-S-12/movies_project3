@@ -37,6 +37,24 @@ def compare_pval_alpha(p_val, alpha):
         status = 'Reject'
     return status
 
+def significance(p_val, alpha):
+    
+    # Produces an explanation of whether the result is significant for a given alpha. If the number is larger thann 3dp then
+    # it will round, otherwise will give full p-value.
+    
+    status = ''
+    if p_val>0.001:
+        if p_val > alpha:
+            status = f"Fail to reject the null as our p-value ({round(p_val,3)}) is greater than our alpha ({alpha}) so the result is not signifcant."
+        else:
+            status = f'We reject the null as our p-value ({round(p_val,3)}) is less than our alpha ({alpha}) so we can say this result is signifcant.'
+    else:
+        if p_val > alpha:
+            status = f"Fail to reject the null as our p-value ({p_val}) is greater than our alpha ({alpha}) so the result is not signifcant."
+        else:
+            status = f'We reject the null as our p-value ({p_val}) is less than our alpha ({alpha}) so we can say this result is signifcant.'
+    return status
+
 
 def welch_t(a, b):
     
