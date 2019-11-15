@@ -11,16 +11,35 @@ Each support function should have an informative name and return the partially c
 """
 import pandas as pd
 
-def support_function_one(example):
-    pass
 
-def support_function_two(example):
-    pass
+def rename_columns(dataframe, current_columns, new_columns):
+    
+    df=dataframe
+    
+    for column, name in list(zip(current_columns,new_columns)):
+        df.rename(columns={column:name},inplace=True)
+    return df
+
+def drop_columns(dataframe,columns_to_drop):
+    df=dataframe
+    return df.drop(columns=columns_to_drop, inplace=True)
+
 
 def support_function_three(example):
     pass
 
-def full_clean():
+
+
+
+
+
+def full_clean(dataframe, current_columns, new_columns, columns_to_drop):
+    
+    df_clean1 = rename_columns(dataframe, current_columns, new_columns)
+    df_cleaned = drop_columns(df_clean1, columns_to_drop)
+    return df_cleaned
+    
+    
     """
     This is the one function called that will run all the support functions.
     Assumption: Your data will be saved in a data folder and named "dirty_data.csv"
