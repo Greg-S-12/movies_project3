@@ -1,74 +1,22 @@
-"""
-This module is for your final hypothesis tests.
-Each hypothesis test should tie to a specific analysis question.
 
-Each test should print out the results in a legible sentence
-return either "Reject the null hypothesis" or "Fail to reject the null hypothesis" depending on the specified alpha
-"""
+# def create_sample_dists(cleaned_data, y_var=None, categories=[]):
+#     """
+#     Each hypothesis test will require you to create a sample distribution from your data
+#     Best make a repeatable function
 
-import pandas as pd
-import numpy as np
-from scipy import stats
-import math
+#     :param cleaned_data:
+#     :param y_var: The numeric variable you are comparing
+#     :param categories: the categories whose means you are comparing
+#     :return: a list of sample distributions to be used in subsequent t-tests
 
+#     """
+#     htest_dfs = []
 
-
-def welch_t(a, b):
-    
-    # Calculate Welch's t-statistic
-
-    numerator = a.mean() - b.mean()
-    
-    # “ddof = Delta Degrees of Freedom”: the divisor used in the calculation is N - ddof, 
-    #  where N represents the number of elements. By default ddof is zero.
-    
-    denominator = np.sqrt(a.var(ddof=1)/a.size + b.var(ddof=1)/b.size)
-    
-    return np.abs(numerator/denominator)
-
-def welch_df(a, b):
-    
-    # Calculate the effective degrees of freedom
-    
-    s1 = a.var(ddof=1) 
-    s2 = b.var(ddof=1)
-    n1 = a.size
-    n2 = b.size
-    
-    numerator = (s1/n1 + s2/n2)**2
-    denominator = (s1/ n1)**2/(n1 - 1) + (s2/ n2)**2/(n2 - 1)
-    
-    return numerator/denominator
+#     # Main chunk of code using t-tests or z-tests
+#     return htest_dfs
 
 
-
-
-def create_sample_dists(cleaned_data, y_var=None, categories=[]):
-    """
-    Each hypothesis test will require you to create a sample distribution from your data
-    Best make a repeatable function
-
-    :param cleaned_data:
-    :param y_var: The numeric variable you are comparing
-    :param categories: the categories whose means you are comparing
-    :return: a list of sample distributions to be used in subsequent t-tests
-
-    """
-    htest_dfs = []
-
-    # Main chunk of code using t-tests or z-tests
-    return htest_dfs
-
-def compare_pval_alpha(p_val, alpha):
-    status = ''
-    if p_val > alpha:
-        status = "Fail to reject"
-    else:
-        status = 'Reject'
-    return status
-
-
-def hypothesis_test_one(alpha = None, cleaned_data):
+def hypothesis_test_one(cleaned_data, alpha = None):
     """
     Describe the purpose of your hypothesis test in the docstring
     These functions should be able to test different levels of alpha for the hypothesis test.
@@ -112,3 +60,5 @@ def hypothesis_test_three():
 
 def hypothesis_test_four():
     pass
+
+
